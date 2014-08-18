@@ -1,0 +1,34 @@
+TaskOptions:
+  TaskOptions:
+    option:
+    - name: arguments
+      value: "-p $FilePath$"
+    - name: checkSyntaxErrors
+      value: 'false'
+    - name: description
+      value: Renders Slim templates using the 'slimrb' gem executable
+    - name: exitCodeBehavior
+      value: NEVER
+    - name: fileExtension
+      value: slim
+    - name: immediateSync
+      value: 'true'
+    - name: name
+      value: Slim
+    - name: output
+      value: "$ProjectFileDir$/public/$FileNameWithoutExtension$.html"
+    - name: outputFilters
+      array: 
+    - name: outputFromStdout
+      value: 'true'
+    - name: passParentEnvs
+      value: 'true'
+    - name: program
+      value: "/Users/neo/.gem/ruby/2.1.2/bin/slimrb"
+    - name: scopeName
+      value: Project Files
+    - name: trackOnlyRoot
+      value: 'false'
+    - name: workingDir
+      value: ''
+    envs:
