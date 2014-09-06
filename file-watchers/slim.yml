@@ -1,10 +1,11 @@
+---
 TaskOptions:
   TaskOptions:
     option:
     - name: arguments
-      value: "-p $FilePath$"
+      value: "-p --trace $FilePath$"
     - name: checkSyntaxErrors
-      value: 'false'
+      value: 'true'
     - name: description
       value: Renders Slim templates using the 'slimrb' gem executable
     - name: exitCodeBehavior
@@ -16,7 +17,7 @@ TaskOptions:
     - name: name
       value: Slim
     - name: output
-      value: "$ProjectFileDir$/public/$FileNameWithoutExtension$.html"
+      value: "$ProjectFileDir$/$FileNameWithoutExtension$.html"
     - name: outputFilters
       array: 
     - name: outputFromStdout
