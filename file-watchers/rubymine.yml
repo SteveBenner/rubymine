@@ -1,0 +1,46 @@
+# Default configuration for Rubymine templates
+
+# NOTE: settings represented by a checkbox in Rubymine are 'checked' when their value is 'true'
+rubymine:
+  project_version: 4 # No clue what this is
+
+  # Configures a file watcher for a project
+  file-watcher:
+    # Name of the watcher as it appears in the preferences list
+    name:
+    # Description of the watcher
+    description:
+    # Path to the program launched on file change
+    program:
+    # Argument string passed to the program launched; note that spaces and double-quotes within must be shell-escaped
+    arguments:
+    # The type of file monitored
+    fileExtension: UNKOWN
+    # Execution directory for the command run on file change
+    workingDir: $ProjectFileDir$
+    # A colon-separated list of paths where output from the command run is expected to create files. Note that this
+    # does NOT configure the program being run in any way; this must be done in the command line arguments string.
+    output:
+    # When true, any change to the source code triggers the watcher immediately.
+    # When false, the watcher is triggered on file save or frame deactivation (when you move focus from Rubymine)
+    immediateSync: true
+    # On detecting a file change, Rubymine scans for any files which import the one changed, doing so recursively until
+    # until arriving at a set of 'root files', which are not imported by anything. When set to true, only the root
+    # files will be invoked by the watcher; when false, this setting triggers the watcher for ALL importing files.
+    # Only available for CSS, SASS/SCSS, LESS, Compass, Stylus, Typescript, and Dart files.
+    trackOnlyRoot: false
+    # Determines when the console will be shown for output from this file watcher; can be ALWAYS, ERROR, or NEVER
+    exitCodeBehavior: ERROR
+    # When set to true, ignores changes in files containing source code with syntax errors
+    checkSyntaxErrors: true
+    # When true, creates output file from the output of the command run
+    outputFromStdout: false
+    passParentEnvs: true
+    # Restricts the set of monitored files to that of selected scope
+    scopeName: Project Files # can be: Project Production Files, Project Test Files, Open Files, Changed Files, Default
+    # Filters determine which output from the command will be used by Rubymine to create hyperlinks or highlighted text
+    outputFilters: []
+    # Set environment variables for the program being run
+    envs: []
+    # CUSTOM: This property is used in the template, but is not present in the list of XML options
+    enabled?: false

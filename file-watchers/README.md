@@ -1,9 +1,13 @@
 # File Watchers
-RubyMine uses a nice orderly data format for their file watcher configurations. You can export it as thus:
+RubyMine uses a nice orderly data format for their file watcher configurations. **You can export one as thus:**
 
     Preferences -> Project Settings -> File Watchers -> Export (small button with a purple right-facing arrow)
     
-I've been using the [gorgeous](https://github.com/mislav/gorgeous) gem to convert exported watcher files to YAML. It works well, although converting from YAML to XML doesn't. Still, it's a great start.
+The configuration data is completely documented in the [rubymine.yml]() file (as well as my default settings).
+
+Right now I'm building these configuration files using Slim templates of my own device; the solution is pretty hacky at the moment but I'm shaping it into a legit project scaffolding system based on Slim and YAML...
+
+The objectives listed below will be fully attainable with some more work... Luckily, Rubymine uses a very straightforward protocol for their configuration files. I've already had success, for instance, with programmatically installing file watcher configurations into a project.
 
 ### Some objectives
 - Set up file watcher in this directory to keep YAML/XML files mirrored at all times.
@@ -12,4 +16,6 @@ I've been using the [gorgeous](https://github.com/mislav/gorgeous) gem to conver
 
 ---
 #### WATCHERS
+**You can use the XML files in this directory as File Watchers by importing them via Rubymine's GUI.**
+
 - **slim** - Compiles [Slim](http://slim-lang.com/) templates into HTML.

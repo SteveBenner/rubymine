@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <TaskOptions>
-  <TaskOptions>
-    <option name="arguments" value="-p $FilePath$" />
-    <option name="checkSyntaxErrors" value="false" />
-    <option name="description" value="Renders Slim templates using the 'slimrb' gem executable" />
-    <option name="exitCodeBehavior" value="NEVER" />
-    <option name="fileExtension" value="slim" />
-    <option name="immediateSync" value="true" />
-    <option name="name" value="Slim" />
-    <option name="output" value="$ProjectFileDir$/public/$FileNameWithoutExtension$.html" />
+  <TaskOptions isEnabled="false">
+    <option name="name" value="Slim"/>
+    <option name="description" value="Renders Slim templates using the slimrb gem executable"/>
+    <option name="program" value="~/.gem/ruby/2.1.2/bin/slimrb"/>
+    <option name="arguments" value="-p $FilePath$ --trace"/>
+    <option name="fileExtension" value="slim"/>
+    <option name="workingDir" value="$ProjectFileDir$"/>
+    <option name="output" value="$ProjectFileDir$/$FileNameWithoutExtension$.html"/>
+    <option name="immediateSync" value=""/>
+    <option name="trackOnlyRoot"/>
+    <option name="exitCodeBehavior" value="ERROR"/>
+    <option name="checkSyntaxErrors"/>
+    <option name="outputFromStdout" value=""/>
+    <option name="passParentEnvs" value=""/>
+    <option name="scopeName" value="Project Files"/>
     <option name="outputFilters">
-      <array />
+      <array/>
     </option>
-    <option name="outputFromStdout" value="true" />
-    <option name="passParentEnvs" value="true" />
-    <option name="program" value="/Users/neo/.gem/ruby/2.1.2/bin/slimrb" />
-    <option name="scopeName" value="Project Files" />
-    <option name="trackOnlyRoot" value="false" />
-    <option name="workingDir" value="" />
-    <envs />
+    <envs/>
   </TaskOptions>
 </TaskOptions>
-
