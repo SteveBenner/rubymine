@@ -3,3 +3,32 @@
 
 ## [File Watchers](/file-watchers)
 With version 6, RuybMine introduced the 'file watchers' system, which helps automate things like asset compilation (SASS, CoffeeScript, etc). You can create your own, so I've included the necessary information for reproducing the ones I've made in simple YAML files. In the near future I'll make a script that installs file watchers from such data.
+
+## Plugins
+Right now this is just a list of the ones I use. Someday I'll be installing them programmatically...
+
+#### User-made
+- Markdown
+- BashSupport
+- NodeJS
+- .gitignore support
+- LiveEdit
+- Bitbucket
+- CodeGlance
+- String Manipulation
+- File Watchers
+- Apache config (.htaccess) support
+- Erlang
+- Require.js plugin
+- nginx Support
+- Ini4Idea
+- EditorConfig
+- Inspection-JS
+- Spell Checker English Dictionary
+- Polymer & Web Components
+- CamelCase
+- coffeescript-idea
+- PMIP - Poor Mans IDE Plugin
+- LiveTemplatePreview
+- SmoothScroll
+- 
