@@ -14,33 +14,10 @@ Thumbs.db
 # JetBrains IDE configuration files
 .idea/
 
-# SASS/SCSS
-.sass-cache/
-
 # Bundler
 Gemfile.lock
 .gems/
 .bundle/
 
-# Bower
-bower_components/
-components/
-
-### RhoMobile/Rhodes
-
-# build files
-bin/
-rhosimulator/
-/project/
-*.jar
-*.o
-
-# logs and symlinks
-rholog.txt
-rhologrhhrho
-rholog-*
-sim-*
-
-# RhoStudio (Eclipse)
-.metadata/
-.project
+# Files compiled from templates
+*.xml
