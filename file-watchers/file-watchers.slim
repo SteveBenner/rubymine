@@ -1,0 +1,24 @@
+/ Creates one or more Rubymine file watcher configuration elements
+/ @note logic_less mode must be enabled
+/
+/ @local [Array] watchers List of file watcher configurations
+/
+- watchers
+  TaskOptions isEnabled="#{enabled}"
+    - options
+      option name=name value=value /
+    option name="outputFilters"
+      - outputFilters
+        array
+          - filters
+            FilterInfo
+              - filter_opts
+                option name=name value=value /
+      -! outputFilters
+        array /
+    - envs
+      envs
+        - env
+          env name=name value=value /
+    -! envs
+      envs /

@@ -1,0 +1,22 @@
+/ Produces one of three different kinds of RubyMine 'file watcher' configuration file
+/
+/ @local [String] rendered_file_watchers The XML constituting one or more file watcher configurations
+/ @local [String, Symbol] config_for Specifies type of config file to generate (either :project or :app)
+/
+ruby:
+  rubymine_project_version = 4
+
+doctype xml
+- case config_for.to_sym
+  - when :project
+    project version=rubymine_project_version
+      component name="ProjectTasksOptions"
+        == rendered_file_watchers
+  - when :app
+    application
+      component name="ApplicationTasksOptions"
+        == rendered_file_watchers
+  - when :bare
+    TaskOptions
+      == rendered_file_watchers
+  - else abort 'ERROR: Invalid configuration type'
