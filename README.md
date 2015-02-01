@@ -1,8 +1,8 @@
 # RubyMine stuff
 [RubyMine](http://www.jetbrains.com/ruby/) is the best IDE the world has ever seen. Here are some things for it.
 
-- ### [File Watchers](/file-watchers)
-Support for file watchers was introduced in RubyMine version 6. Click the link for more info.
+- ### File Watchers
+Support for file watchers was introduced in RubyMine version 6. [Click here for the goods!](/file-watchers)
 - ## Plugins
 
   My currently installed plugins are listed here. Eventually I hope to automate their installation.
