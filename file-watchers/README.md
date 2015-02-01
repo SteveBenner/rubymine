@@ -8,7 +8,7 @@ My personal collection of File Watcher XML configuration files (ready for import
 I find YAML to be superior in most every way when it comes to configuration files, and I also hate XML. The obvious solution was to write a script that can generate the proper XML from YAML.
 
 - The simplified YAML File Watcher configuration schema is described in [`file-watchers/schema.yml`][2].
-- When given the path to such a YAML file as its argument, [`fw-gen`](bin/fw-gen) produces an XML config file.
+- When given the path to such a YAML file as its argument, [`fw-gen`][3] produces an XML config file.
 - There are 3 types of output possible - for more information, see script comments and this README.
 
 
@@ -90,6 +90,6 @@ The data representation of a 'watcher' is a `<TaskOptions>` element containing o
 
 
 [1]: https://www.jetbrains.com/ruby/help/using-file-watchers.html
-[2]: file-watchers/schema.yml
-[3]: bin/fw-gen
-[4]: file-watchers/configs/
+[2]: /file-watchers/schema.yml
+[3]: /bin/fw-gen
+[4]: /file-watchers/configs/

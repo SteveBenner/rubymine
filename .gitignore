@@ -21,3 +21,6 @@ Gemfile.lock
 
 # Files compiled from templates
 *.xml
+
+# We want this
+!/bin/
