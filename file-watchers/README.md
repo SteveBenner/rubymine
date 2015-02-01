@@ -1,72 +1,95 @@
 # File Watchers
-The RubyMine 'file watcher' system is highly configurable, and allows for one or more 'watchers' to be defined using a straightforward XML format, as well as imported/exported in this format. More specific information can be found within [the schema file](file-watchers/schema.yml).
+The highly configurable [*File Watcher* system][1] is one of RubyMine's **best** selling-points, especially for web developers like myself. Even though its GUI is top-notch and leaves almost nothing to be desired, I like this feature *so much* that I decided to take a look under-the-hood at the internal configuration. Unsurprisingly, JetBrains has written some elegant software here, and I was pleased to discover that 'watchers' can be defined using a straightforward, consistent XML format.
 
-### Configuration protocol (v6.3.3)
+### Browse / Import
+My personal collection of File Watcher XML configuration files (ready for import) is available [here][4].
 
-The fundamental XML schema for watcher configurations is a `TaskOptions` element which contains a list of `option` elements, each defining a unique setting via `name` and `value` attributes. They may exist as standalone or as a collection within their parent element, which is determined by the type of configuration file. Example:
+### Generate from YAML data
+I find YAML to be superior in most every way when it comes to configuration files, and I also hate XML. The obvious solution was to write a script that can generate the proper XML from YAML.
 
-```xml
-<TaskOptions isEnabled="">
-  <option name="" value=""/>
-  ...
-</TaskOptions>
-```
+- The simplified YAML File Watcher configuration schema is described in [`file-watchers/schema.yml`][2].
+- When given the path to such a YAML file as its argument, [`fw-gen`](bin/fw-gen) produces an XML config file.
+- There are 3 types of output possible - for more information, see script comments and this README.
 
-**Importing / Exporting**
 
-When using the GUI to import or export watchers, they are simply wrapping in a parent `TaskOptions` element.
+---
+
+### Configuration protocol (RubyMine v6.3.3)
+
+The data representation of a 'watcher' is a `<TaskOptions>` element containing one or more `<option>` elements that correspond exactly with the fields and controls in the GUI interface. Because the format is so intuitive, [writing a script to generate my own configurations proved quite simple][3]. Below is the complete example XML for a single 'watcher'; for documentation and default values, see [this file][2].
 
 ```xml
 <TaskOptions>
-  ...
+  <option name="arguments" value="" />
+  <option name="checkSyntaxErrors" value="true" />
+  <option name="description" value="" />
+  <option name="exitCodeBehavior" value="ERROR" />
+  <option name="fileExtension" value="" />
+  <option name="immediateSync" value="true" />
+  <option name="name" value="" />
+  <option name="output" value="" />
+  <option name="outputFilters">
+    <array>
+      <FilterInfo>
+        <option name="description" value="" />
+        <option name="name" value="" />
+        <option name="regExp" value="" />
+      </FilterInfo>
+    </array>
+  </option>
+  <option name="outputFromStdout" value="true" />
+  <option name="passParentEnvs" value="true" />
+  <option name="program" value="" />
+  <option name="scopeName" value="Project Files" />
+  <option name="trackOnlyRoot" value="false" />
+  <option name="workingDir" value="" />
+  <envs>
+    <env name="" value="" />
+  </envs>
 </TaskOptions>
 ```
 
-**Project-level configuration**
+#### There appear to be 3 usages of File Watcher configurations:
+- **Importing / Exporting**
 
-File watchers for a project can be defined within the file `.idea/watcherTasks.xml`, enumerated within the following structure:
-
-```xml
-<project version="4">
-  <component name="ProjectTaskOptions">
+  From the File Watchers preferene pane in the IDE, 'watchers' can be imported and exported without much overhead: a collection of one or more configs wrapped within a single `TaskOptions` does the trick.
+  
+  ```xml
+  <TaskOptions>
     ...
-  </component>
-</project>
+  </TaskOptions>
+  ```
 
-```
+- **Project-Level Configuration**
+  
+  The 'watchers' for each project are defined within local config file `.idea/watcherTasks.xml`, which is a *very* convenient idiom--anyone with basic scripting knowledge could use this to, say, initialize a project with pre-configured 'watchers', or load 'watchers' into multiple projects en masse. The file consists of your collection of 'watcher' elements within the following XML:
+  
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <project version="4">
+    <component name="ProjectTaskOptions">
+      ...
+    </component>
+  </project>
+  
+  ```
 
-** IDE defaults**
+- **IDE Default Watchers**
 
-RubyMine stores default watcher settings for the current user in `~/Library/Preferences/RubyMine60/options/watcherDefaultTasks.xml` using the following schema:
-
-```xml
-<application>
-  <component name="ApplicationTaskOptions">
-    ...
-  </component>
-</application>
-
-```
-
-## Generator script
-Using Slim templates, I created a script that generates file watcher config XML from simple YAML files, which 
+   There is a configuration file `~/Library/Preferences/RubyMine60/options/watcherDefaultTasks.xml` which appears to store the 'watcher' configurations used as templates when creating a new File Watcher via the preference pane. Manually adding data to this file produces no results, so whether or not it has any use remains to be seen. The 'watchers' are wrapped in the following XML:
+  
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <application>
+    <component name="ApplicationTaskOptions">
+      ...
+    </component>
+  </application>
+  
+  ```
 
 
----
-
-### Some objectives
-- Set up file watcher in this directory to keep YAML/XML files mirrored at all times.
-- Find out a way to install these files into a RubyMine project so watchers can be loaded programmatically.
-- **Advanced:** figure out a way to implement dynamic configurations, e.g. setting the path to a gem executable based on your actual system settings. It shouldn't be too difficult to write a basic generator script for file watchers to accomplish this.
-
----
-#### WATCHERS
-**You can use the XML files in this directory as File Watchers by importing them via Rubymine's GUI.**
-
-- **slim** - Compiles [Slim](http://slim-lang.com/) templates into HTML.
-
----
-
-**TODO:**
-
-- spread the word [here](https://www.jetbrains.com/ruby/help/file-watchers.html)
+[1]: https://www.jetbrains.com/ruby/help/using-file-watchers.html
+[2]: file-watchers/schema.yml
+[3]: bin/fw-gen
+[4]: file-watchers/configs/
