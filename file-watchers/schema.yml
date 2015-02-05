@@ -1,4 +1,4 @@
-# This file represents the schema for a File Watcher configuration, simplified into a single mapping for convenience
+# This file represents the schema for a RubyMine File Watcher configuration
 #
 # NOTE: settings represented by a checkbox in Rubymine are 'checked' when their value is 'true'
 #
@@ -40,5 +40,5 @@ rubymine:
     scopeName: Project Files # can be: Project Production Files, Project Test Files, Open Files, Changed Files, Default
     # Filters determine which output from the command will be used by Rubymine to create hyperlinks or highlighted text
     outputFilters: []
-    # Set environment variables for the program being run
+    # Sets environment variables for the program being run
     envs: []

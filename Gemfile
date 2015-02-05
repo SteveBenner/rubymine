@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'gorgeous'
-gem 'thor'
 gem 'awesome_print'
 gem 'slim'
 

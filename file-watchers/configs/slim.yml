@@ -1,5 +1,4 @@
-file-watcher:
-  name: Slim
+- name: Slim
   description: Renders Slim templates using the slimrb gem executable
   arguments: -p $FilePath$ --trace
   fileExtension: slim

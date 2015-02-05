@@ -1,16 +1,15 @@
 # File Watchers
-The highly configurable [*File Watcher* system][1] is one of RubyMine's **best** selling-points, especially for web developers like myself. Even though its GUI is top-notch and leaves almost nothing to be desired, I like this feature *so much* that I decided to take a look under-the-hood at the internal configuration. Unsurprisingly, JetBrains has written some elegant software here, and I was pleased to discover that 'watchers' can be defined using a straightforward, consistent XML format.
+The highly configurable [*File Watcher* system][1] is one of RubyMine's **best** selling-points, especially for web developers. It is a *must-have* plugin. Even though its GUI is top-notch and leaves almost nothing to be desired, I like this feature *so much* that I decided to take a look under-the-hood at the internal configuration. Unsurprisingly, JetBrains has written some elegant software here, and I was pleased to discover that 'watchers' can be defined using a straightforward, consistent XML format.
 
 ### Browse / Import
-My personal collection of File Watcher XML configuration files (ready for import) is available [here][4].
+My personal collection of File Watcher templates can be found in the [`configs`][4] directory. The included executable [`fw-gen`](3) can be used to generate the XML which can then be imported into RubyMine.
 
-### Generate from YAML data
-I find YAML to be superior in most every way when it comes to configuration files, and I also hate XML. The obvious solution was to write a script that can generate the proper XML from YAML.
+### Generating from YAML data
+I find YAML to be superior in most every way when it comes to configuration files, and I also hate XML. So I wrote a little script that converts a YAML configuration into XML using Slim templates.
 
 - The simplified YAML File Watcher configuration schema is described in [`file-watchers/schema.yml`][2].
 - When given the path to such a YAML file as its argument, [`fw-gen`][3] produces an XML config file.
 - There are 3 types of output possible - for more information, see script comments and this README.
-
 
 ---
 

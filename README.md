@@ -3,7 +3,7 @@
 
 - ### [File Watchers](/file-watchers)
 
-  Support for file watchers was introduced in RubyMine version 6. Click the link for tools and resources!
+  Support for file watchers was introduced in RubyMine version 6. Click the link for resources.
   
 - ## Plugins
 

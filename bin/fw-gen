@@ -1,17 +1,17 @@
 #!/usr/bin/env ruby
 #
-# This script generates and outputs the XML for a RubyMine 'file watcher' configuration
+# This script generates and outputs the XML for a RubyMine File Watcher configuration
 #
 # There are 2 arguments:
 #   $1 - Path to a YAML file containing one or more watcher configurations (see README for schema info)
-#   $2 - [OPTIONAL] Alternative configuration to emit instead of import/export (choices are 'app' or 'project')
+#   $2 - [OPTIONAL] Alternative configuration to emit instead of import/export (either 'app' or 'project')
 #
 require 'yaml'
 require 'pathname'
+require 'ostruct'
 require 'bundler'
 Bundler.setup
 require 'slim/logic_less'
-require 'hashugar' # this could be removed if I weren't so lazy... It's just for making the 'scope' object work
 
 # The heavy work is done by Slim templates - Slim is pretty fantastic for generating XML
 Slim::Engine.set_options encoding: 'utf-8', format: :xml, pretty: true
@@ -37,6 +37,6 @@ WATCHERS.each do |w|
 end
 
 dict = {watchers: WATCHERS}
-xml = Slim::Template.new(TEMPLATE1, logic_less: true).render(dict)
-dict = {rendered_file_watchers: xml, config_for: CONFIG_TYPE}.to_hashugar
+xml = Slim::Template.new(TEMPLATE1, logic_less: true).render dict
+dict = OpenStruct.new rendered_file_watchers: xml, config_for: CONFIG_TYPE
 puts Slim::Template.new(TEMPLATE2, logic_less: false).render dict
