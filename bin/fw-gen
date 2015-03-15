@@ -25,15 +25,15 @@ CONFIG_TYPE = ARGV[1] || :bare # Default to :bare configuration (for import/expo
 
 # In order to convert a flat data structure into the appropriate XML some data massaging is necessary
 WATCHERS.each do |w|
-	# Basically what this code does is to isolate collections and re-assign them as per proper XML structure
-	w['options'] = w.collect { |k,v| {name: k, value: v} unless %w[envs outputFilters enabled].include?(k) }
-	# Iteration here would cause multiple <array> nodes to be created, so store data as a Hash instead
-	w['outputFilters'] = {
-		filters: w['outputFilters'].collect { |f| {filter_opts: f.collect { |k,v| {name: k, value: v} }} }
-	} if w['outputFilters']
-	w['envs'] = {
-		env: w['envs'].collect { |k,v| {name: k, value: v} }
-	} if w['envs']
+  # Basically what this code does is to isolate collections and re-assign them as per proper XML structure
+  w['options'] = w.collect { |k,v| {name: k, value: v} unless %w[envs outputFilters enabled].include?(k) }
+  # Iteration here would cause multiple <array> nodes to be created, so store data as a Hash instead
+  w['outputFilters'] = {
+    filters: w['outputFilters'].collect { |f| {filter_opts: f.collect { |k,v| {name: k, value: v} }} }
+  } if w['outputFilters']
+  w['envs'] = {
+    env: w['envs'].collect { |k,v| {name: k, value: v} }
+  } if w['envs']
 end
 
 dict = {watchers: WATCHERS}
