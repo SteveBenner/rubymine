@@ -1,13 +1,13 @@
 # RubyMine stuff
-[RubyMine](http://www.jetbrains.com/ruby/) is the best IDE the world has ever seen. Here are some things for it.
+In this repo you will find resources for [RubyMine](http://www.jetbrains.com/ruby/), my primary software development tool.
 
 - ### [File Watchers](/file-watchers)
 
-  Support for file watchers was introduced in RubyMine version 6. Click the link for resources.
+  Generate file watcher config files programmatically with my script, or browse example files.
   
 - ## Plugins
 
-  My currently installed plugins are listed here. Eventually I hope to automate their installation.
+  My currently installed plugins are listed here.
     
   #### JetBrains
   - Apache config (.htaccess) support
@@ -38,5 +38,3 @@
   - Spell Checker English Dictionary
   - String Manipulation
   - Webmaster
-  - [Gist Templates](http://geowarin.github.io/gist-templates-plugin) (under review)
-  - [Compare Directories](http://plugins.intellij.net/plugin/?idea&id=113) (under review)
