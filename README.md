@@ -1,7 +1,7 @@
 # RubyMine resources
 In this repo you will find resources for [RubyMine](http://www.jetbrains.com/ruby/), my primary software development tool.
 
-###### *NOTE: Information presented here pertains to RubyMine version 8*
+###### *NOTE: Information presented here is for RubyMine 8, and may not be relevant to other versions.*
 ---
 
 - #### [File Watchers](/file-watchers)
