@@ -7,10 +7,11 @@ The [`templates`](templates/) directory contains my custom File Watcher definiti
 **NOTE:** requires `slim` gem.
 
 ### Usage
-*TODO*
+*todo*
 
+### Configuration reference
+*Taken from [official JetBrains documentation][3]*
 
-### Configuration format
 | Option | Description |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name` | Name of the File Watcher item |
@@ -30,9 +31,45 @@ The [`templates`](templates/) directory contains my custom File Watcher definiti
 | `outputFilters` |  Specifies which portion of output to highlight and/or hyperlink |
 | `envs` | Set `ENV` variables for program |
 
-### Configuration protocol (RubyMine 8.0)
+### There are 3 *File Watchers* XML configuration protocols
+A *File Watcher* definition is represented in JetBrains `xml` configuration files with a `TaskOptions` element. Such an element may be used in several different types of configuration file. *See the [*File Watcher* configuration definition](#jetbrains-file-watcher-xml-configuration-definition) for specific details.*
 
-The data representation of a 'watcher' is a `<TaskOptions>` element containing one or more `<option>` elements that correspond exactly with the fields and controls in the GUI interface. Because the format is so intuitive, [writing a script to generate my own configurations proved quite simple][3]. Below is the complete example XML for a single 'watcher'; for documentation and default values, see [this file][2].
+1. **One or more *File Watcher* definitions may be imported or exported via `xml` config file, using the GUI**
+
+    In the IDE preferences, under `Tools` -> `File Watchers`, one or more *File Watchers* may be imported into the current project or exported via `xml` configuration file. The format is very simple, consisting only of a single `TaskOptions` parent element.
+      
+    ```xml
+    <TaskOptions>
+      <!-- one or more File Watcher items -->
+    </TaskOptions>
+    ```
+
+2. **Project-wide *File Watcher* configuration file**
+
+    The *File Watcher* definitions for a JetBrains project are stored under the local `.idea/` folder, within the file `watcherTasks.xml`. By editing this file, one can manually configure a project's *File Watchers*. The `xml` format is as follows, with given values:
+    
+    ```xml
+    <project version="4">
+      <component name="ProjectTasksOptions">
+        <!-- one or more File Watcher items -->
+      </component>
+    </project>
+    ```
+
+3. **IDE Default Watchers**
+
+    There is a configuration file `~/Library/Preferences/RubyMine60/options/watcherDefaultTasks.xml` which appears to store the 'watcher' configurations used as templates when creating a new File Watcher via the preference pane. Manually adding data to this file produces no results, so whether or not it has any use remains to be seen. The 'watchers' are wrapped in the following XML:
+    
+    ```xml
+    <application>
+      <component name="ApplicationTaskOptions">
+        ...
+      </component>
+    </application>
+    ```
+
+### JetBrains *File Watcher* XML configuration definition
+The data representation of a *File Watcher* is a `<TaskOptions>` element containing one or more `<option>` elements that correspond exactly with the fields and controls in the GUI interface. Because the format is so intuitive, [writing a script to generate my own configurations proved quite simple][3]. Below is the complete example XML for a single 'watcher'; for documentation and default values, see [this file][2].
 
 ```xml
 <TaskOptions>
@@ -65,41 +102,8 @@ The data representation of a 'watcher' is a `<TaskOptions>` element containing o
 </TaskOptions>
 ```
 
-#### There appear to be 3 usages of File Watcher configurations:
-- **Importing / Exporting**
 
-From the File Watchers preferene pane in the IDE, 'watchers' can be imported and exported without much overhead: a collection of one or more configs wrapped within a single `TaskOptions` does the trick.
-  
-```xml
-<TaskOptions>
-  ...
-</TaskOptions>
-```
-
-- **Project-Level Configuration**
-  
-The 'watchers' for each project are defined within local config file `.idea/watcherTasks.xml`, which is a *very* convenient idiom--anyone with basic scripting knowledge could use this to, say, initialize a project with pre-configured 'watchers', or load 'watchers' into multiple projects en masse. The file consists of your collection of 'watcher' elements within the following XML:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectTaskOptions">
-    ...
-  </component>
-</project>
-```
-
-- **IDE Default Watchers**
-
-There is a configuration file `~/Library/Preferences/RubyMine60/options/watcherDefaultTasks.xml` which appears to store the 'watcher' configurations used as templates when creating a new File Watcher via the preference pane. Manually adding data to this file produces no results, so whether or not it has any use remains to be seen. The 'watchers' are wrapped in the following XML:
-
-```xml
-<application>
-  <component name="ApplicationTaskOptions">
-    ...
-  </component>
-</application>
-```
 
 [1]: https://www.jetbrains.com/ruby/help/using-file-watchers.html
 [2]: /file-watchers/schema.yml
+[3]: https://www.jetbrains.com/ruby/help/new-watcher-dialog.html

@@ -1,0 +1,13 @@
+-XX:InitialHeapSize=128m
+-XX:MaxHeapSize=2g
+-XX:PermSize=64m
+-XX:MaxPermSize=256m
+-XX:ReservedCodeCacheSize=64m
+-XX:+UseCodeCacheFlushing
+-XX:+UseCompressedOops
+-XX:+DoEscapeAnalysis
+-XX:+UseFastAccessorMethods
+-XX:+UseStringCache
+-XX:+UseCompressedStrings
+-XX:+OptimizeStringConcat
+-XX:+UseParNewGC
