@@ -1,5 +1,8 @@
 # TODO
 
+- FINISH FILE WATCHER STUFF
+- Add the rest of my file & code templates
+- Add Live Templates
 - Add macros
 
 ### Configuration

@@ -1,14 +1,18 @@
 # RubyMine resources
 In this repo you will find resources for [RubyMine](http://www.jetbrains.com/ruby/), my primary software development tool.
 
-#### *Compatibility and relevance of these materials is only assured for RubyMine 8.0*
+###### *NOTE: Information presented here pertains to RubyMine version 8*
+---
 
-- ### [File Watchers](/file-watchers)
+- #### [File Watchers](/file-watchers)
 
-    Learn about the File Watcher feature, generate/install configurations using included script
-  
+    - Generate and install File Watcher configurations easily with my script
+    - Browse my collection of File Watcher examples
+    - Extensive documentation of the File Watcher protocol
+
+- #### [File and Code Templates](/file-and-code-templates)
 - ## Plugins
-    List of my currently installed plugins (highlighted items are paid/premium).
+    This is a list of the plugins I currently use (bold items indicate paid/premium):
       
     #### JetBrains
     - Apache config (.htaccess) support
@@ -41,6 +45,8 @@ In this repo you will find resources for [RubyMine](http://www.jetbrains.com/rub
     - Webmaster
 
 - ## Configuration and IDE settings (OS X)
+    ***NOTE: THIS SECTION IS CURENTLY INCOMPLETE***
+    
     Information here is taken mainly from the [official JetBrains documentation][1].
     
     **Note:** `<VERSION>` represents the RubyMine release version in a single string where first digit is the **major** version, and the second is the **minor** version, e.g. `80` for version `8.0.x`.
@@ -133,3 +139,4 @@ In this repo you will find resources for [RubyMine](http://www.jetbrains.com/rub
 
 [1]: https://www.jetbrains.com/ruby/help/
 [2]: https://blog.codecentric.de/en/2012/07/useful-jvm-flags-part-4-heap-tuning/
+[Apache Velocity]: http://velocity.apache.org/engine/devel/user-guide.html#Velocity_Template_Language_VTL:_An_Introduction

@@ -4,10 +4,10 @@ The JetBrains plugin `File Watchers` provides support for running external proce
 ## Templates
 The [`templates`](templates/) directory contains my custom File Watcher definitions in YAML format. Using the included `fw-gen.rb` script, these can be installed into a RubyMine project directly, or converted to `XML` files which can be imported manually.
 
-**NOTE:** requires `slim` gem.
+**NOTE:** Requires `slim` gem to be installed.
 
 ### Usage
-*todo*
+*TODO*
 
 ### Configuration reference
 *Taken from [official JetBrains documentation][3]*
