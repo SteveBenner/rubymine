@@ -12,7 +12,7 @@ In this repo you will find resources for [RubyMine](http://www.jetbrains.com/rub
 
 - #### [File and Code Templates](/file-and-code-templates)
 - ## Plugins
-    This is a list of the plugins I currently use (bold items indicate paid/premium):
+    This is a list of the plugins I currently consider **essential** and install by default on any new JetBrains setup:
       
     #### JetBrains
     - Apache config (.htaccess) support
@@ -24,7 +24,7 @@ In this repo you will find resources for [RubyMine](http://www.jetbrains.com/rub
     - Polymer & Web Components
   
     #### User-contributed
-    - ***MultiMarkdown***
+    - [Markdown Navigator](https://github.com/vsch/idea-multimarkdown) ***(PREMIUM)***
     - BashSupport
     - .gitignore support
     - Bitbucket
@@ -41,7 +41,6 @@ In this repo you will find resources for [RubyMine](http://www.jetbrains.com/rub
     - PMIP - Poor Mans IDE Plugin
     - LiveTemplatePreview
     - Spell Checker English Dictionary
-    - String Manipulation
     - Webmaster
 
 - ## Configuration and IDE settings (OS X)
